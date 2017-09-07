@@ -58,6 +58,19 @@
     };
 }
 
+- (NSArray*(^)(id(^)(id,id)))f_array {
+    return ^NSArray*(id(^f)(id,id)) {
+        NSMutableArray *result = @[].mutableCopy;
+        [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull value, BOOL * _Nonnull stop) {
+            id item = f(key, value);
+            if (item) {
+                [result addObject:item];
+            }
+        }];
+        return result.copy;
+    };
+}
+
 - (NSDictionary *)f_self {
     return self;
 }

@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary<KeyType, ObjectType> *(^)(BOOL(^NS_NOESCAPE)(KeyType, ObjectType)))f_filter;
 - (id(^)(id, id(^NS_NOESCAPE)(id, KeyType, ObjectType)))f_reduce;
 
+- (NSArray*(^)(id(^NS_NOESCAPE)(KeyType, ObjectType)))f_array;
+
 // Package methods
 
 - (NSDictionary<KeyType, ObjectType> *)f_self;
