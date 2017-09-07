@@ -274,6 +274,19 @@ typedef id (^Function2)(id, id);
     };
 }
 
+- (NSArray * _Nonnull (^)(NSInteger count, id  _Nullable (^ _Nonnull)(NSInteger index)))f_fill {
+    return ^NSArray *(NSInteger count, id (^filler)(NSInteger index)) {
+        NSMutableArray *array = @[].mutableCopy;
+        for (NSInteger index = 0; index < count; index++) {
+            id filler_result = filler(index);
+            if (filler_result) {
+                [array addObject:filler_result];
+            }
+        }
+        return array.copy;
+    };
+}
+
 - (NSArray *)f_self {
     return self;
 }

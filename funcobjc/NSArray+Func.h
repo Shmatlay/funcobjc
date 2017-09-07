@@ -41,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL(^)(NSArray<ObjectType>*,BOOL(^)(ObjectType,ObjectType)))f_equal;
 
 - (NSDictionary<id, NSArray<ObjectType> *> *(^)(id(^NS_NOESCAPE)(ObjectType)))f_groupBy;
+- (NSArray *(^)(NSInteger count, id _Nullable(^NS_NOESCAPE)(NSInteger index)))f_fill;
 
 // Package methods
 
